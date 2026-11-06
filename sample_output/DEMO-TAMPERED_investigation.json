@@ -1,0 +1,2084 @@
+{
+  "case_id": "DEMO-TAMPERED",
+  "generated": "2026-11-06T17:37:29",
+  "priority": {
+    "documents": {
+      "DOC-01": {
+        "score": 0.56,
+        "level": "MEDIUM"
+      },
+      "DOC-02": {
+        "score": 0.9,
+        "level": "HIGH"
+      },
+      "DOC-03": {
+        "score": 0.92,
+        "level": "HIGH"
+      },
+      "DOC-04": {
+        "score": 0.94,
+        "level": "HIGH"
+      }
+    },
+    "case_score": 0.94,
+    "case_level": "HIGH"
+  },
+  "summary": "4 documents were examined (Identity Card, Salary Slip, Loan Application Form, Bank Statement). The system recorded 3 potential manipulation hypotheses, 5 detected inconsistencies and 9 observations. Review priority: HIGH. Fields with converging evidence of alteration: Salary Slip - Net pay; Loan Application Form - Monthly net income; Bank Statement - Closing balance. Cross-document conflicts: Date of birth mismatch: Loan Application Form says '14/03/1994', Identity Card says '14/03/1996'; Monthly net income mismatch: Loan Application Form says '95,000', Bank Statement says '45,200'; Monthly net income mismatch: Salary Slip says '95,200', Bank Statement says '45,200'. The applicant's stated income (95,000) agrees with the payslip Net Pay (95,200), but that payslip value is itself under suspicion, so this agreement is not treated as independent corroboration. All findings are indicators for human review. None of them is a determination of fraud.",
+  "llm_summary": null,
+  "reasoning_notes": [
+    "The applicant's stated income (95,000) agrees with the payslip Net Pay (95,200), but that payslip value is itself under suspicion, so this agreement is not treated as independent corroboration."
+  ],
+  "errors": [],
+  "documents": [
+    {
+      "doc_id": "DOC-01",
+      "filename": "01_identity_card.jpg",
+      "sha256": "4023d2cfd63522136018a6413d9af848b4d1296bce5c6fd31e3d6cb2804d4eae",
+      "media_type": "image/jpg",
+      "pages": 1,
+      "doc_type": "identity_card",
+      "type_conf": 0.99,
+      "source": "ocr",
+      "status": "investigated",
+      "fields": {
+        "name": {
+          "value": "Rohan Verma",
+          "raw": "Rohan Verma",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            373,
+            265,
+            554,
+            286
+          ],
+          "label_bbox": [
+            102,
+            261,
+            198,
+            298
+          ]
+        },
+        "dob": {
+          "value": "1996-03-14",
+          "raw": "14/03/1996",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            373,
+            336,
+            530,
+            359
+          ],
+          "label_bbox": [
+            102,
+            335,
+            312,
+            356
+          ]
+        },
+        "id_no": {
+          "value": "DEMO-4821-7730-15",
+          "raw": "DEMO-4821-7730-15",
+          "conf": 92.0,
+          "page": 0,
+          "bbox": [
+            373,
+            406,
+            662,
+            426
+          ],
+          "label_bbox": [
+            102,
+            405,
+            277,
+            426
+          ]
+        },
+        "gender": {
+          "value": "Male",
+          "raw": "Male",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            373,
+            475,
+            435,
+            496
+          ],
+          "label_bbox": [
+            101,
+            471,
+            223,
+            508
+          ]
+        },
+        "address": {
+          "value": "21 Lake View Road, Bhopal 462001",
+          "raw": "21 Lake View Road, Bhopal 462001",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            372,
+            545,
+            862,
+            572
+          ],
+          "label_bbox": [
+            100,
+            541,
+            236,
+            574
+          ]
+        }
+      },
+      "tables": {},
+      "structure": {
+        "duplicates": {},
+        "expected_fields": [
+          "name",
+          "dob",
+          "id_no",
+          "gender",
+          "address"
+        ],
+        "missing": [],
+        "low_confidence": [],
+        "value_columns": [
+          373
+        ],
+        "completeness": 1.0
+      },
+      "metadata": {
+        "image_format": "JPEG",
+        "image_mode": "RGB",
+        "image_size": [
+          1240,
+          1754
+        ]
+      },
+      "artefacts": {
+        "noise_map": "output/DEMO-TAMPERED/artefacts/DOC-01_noise.png",
+        "ela_map": "output/DEMO-TAMPERED/artefacts/DOC-01_ela.png",
+        "annotated": {
+          "0": "output/DEMO-TAMPERED/annotated/DOC-01_p1_annotated.png"
+        }
+      }
+    },
+    {
+      "doc_id": "DOC-02",
+      "filename": "02_salary_slip.jpg",
+      "sha256": "f32299ad1d65f2a3d0a5ddb0e3a23eab45b6cc41314ded97b2c0abe042198f76",
+      "media_type": "image/jpg",
+      "pages": 1,
+      "doc_type": "salary_slip",
+      "type_conf": 0.99,
+      "source": "ocr",
+      "status": "investigated",
+      "fields": {
+        "name": {
+          "value": "Rohan Verma",
+          "raw": "Rohan Verma",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            413,
+            285,
+            594,
+            306
+          ],
+          "label_bbox": [
+            82,
+            285,
+            342,
+            312
+          ]
+        },
+        "emp_id": {
+          "value": "NSW-2291",
+          "raw": "NSW-2291",
+          "conf": 92.0,
+          "page": 0,
+          "bbox": [
+            413,
+            346,
+            554,
+            366
+          ],
+          "label_bbox": [
+            82,
+            345,
+            285,
+            372
+          ]
+        },
+        "pay_period": {
+          "value": "September 2026",
+          "raw": "September 2026",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            412,
+            405,
+            643,
+            432
+          ],
+          "label_bbox": [
+            82,
+            405,
+            256,
+            432
+          ]
+        },
+        "pay_date": {
+          "value": "2026-09-30",
+          "raw": "30/09/2026",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            412,
+            466,
+            570,
+            489
+          ],
+          "label_bbox": [
+            82,
+            466,
+            228,
+            492
+          ]
+        },
+        "basic": {
+          "value": 30000.0,
+          "raw": "30,000",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            472,
+            611,
+            559,
+            633
+          ],
+          "label_bbox": [
+            82,
+            606,
+            148,
+            640
+          ]
+        },
+        "pf": {
+          "value": 3600.0,
+          "raw": "3,600",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            1042,
+            611,
+            1113,
+            633
+          ],
+          "label_bbox": [
+            682,
+            610,
+            872,
+            630
+          ]
+        },
+        "hra": {
+          "value": 12000.0,
+          "raw": "12,000",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            473,
+            661,
+            559,
+            683
+          ],
+          "label_bbox": [
+            82,
+            656,
+            134,
+            690
+          ]
+        },
+        "ptax": {
+          "value": 200.0,
+          "raw": "200",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            1042,
+            661,
+            1088,
+            680
+          ],
+          "label_bbox": [
+            682,
+            660,
+            886,
+            680
+          ]
+        },
+        "special": {
+          "value": 10000.0,
+          "raw": "10,000",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            473,
+            711,
+            559,
+            733
+          ],
+          "label_bbox": [
+            82,
+            710,
+            313,
+            735
+          ]
+        },
+        "tds": {
+          "value": 3000.0,
+          "raw": "3,000",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            1042,
+            711,
+            1113,
+            733
+          ],
+          "label_bbox": [
+            682,
+            711,
+            825,
+            730
+          ]
+        },
+        "gross": {
+          "value": 52000.0,
+          "raw": "52,000",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            412,
+            786,
+            506,
+            810
+          ],
+          "label_bbox": [
+            81,
+            785,
+            325,
+            812
+          ]
+        },
+        "total_deductions": {
+          "value": 6800.0,
+          "raw": "6,800",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            412,
+            846,
+            488,
+            870
+          ],
+          "label_bbox": [
+            80,
+            845,
+            352,
+            866
+          ]
+        },
+        "net_pay": {
+          "value": 95200.0,
+          "raw": "95,200",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            414,
+            914,
+            519,
+            942
+          ],
+          "label_bbox": [
+            82,
+            916,
+            210,
+            942
+          ]
+        },
+        "employer": {
+          "value": "Nimbus Softworks Pvt Ltd",
+          "raw": "Nimbus Softworks Pvt Ltd",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            84,
+            78,
+            663,
+            108
+          ],
+          "label_bbox": null
+        }
+      },
+      "tables": {},
+      "structure": {
+        "duplicates": {},
+        "expected_fields": [
+          "name",
+          "emp_id",
+          "pay_period",
+          "pay_date",
+          "basic",
+          "hra",
+          "special",
+          "pf",
+          "ptax",
+          "tds",
+          "gross",
+          "total_deductions",
+          "net_pay"
+        ],
+        "missing": [],
+        "low_confidence": [],
+        "value_columns": [
+          413,
+          473,
+          1042
+        ],
+        "completeness": 1.0
+      },
+      "metadata": {
+        "image_format": "JPEG",
+        "image_mode": "RGB",
+        "image_size": [
+          1240,
+          1754
+        ]
+      },
+      "artefacts": {
+        "noise_map": "output/DEMO-TAMPERED/artefacts/DOC-02_noise.png",
+        "ela_map": "output/DEMO-TAMPERED/artefacts/DOC-02_ela.png",
+        "annotated": {
+          "0": "output/DEMO-TAMPERED/annotated/DOC-02_p1_annotated.png"
+        }
+      }
+    },
+    {
+      "doc_id": "DOC-03",
+      "filename": "03_loan_application.jpg",
+      "sha256": "0fda9e2cd8ed5dafcb462d699ca06aa4b89a995811dec8adc27ac84497b81124",
+      "media_type": "image/jpg",
+      "pages": 1,
+      "doc_type": "loan_application",
+      "type_conf": 0.99,
+      "source": "ocr",
+      "status": "investigated",
+      "fields": {
+        "name": {
+          "value": "Rohan Verma",
+          "raw": "Rohan Verma",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            463,
+            215,
+            644,
+            236
+          ],
+          "label_bbox": [
+            80,
+            215,
+            338,
+            242
+          ]
+        },
+        "dob": {
+          "value": "1994-03-14",
+          "raw": "14/03/1994",
+          "conf": 95.0,
+          "page": 0,
+          "bbox": [
+            463,
+            291,
+            620,
+            314
+          ],
+          "label_bbox": [
+            82,
+            290,
+            292,
+            311
+          ]
+        },
+        "id_no": {
+          "value": "DEMO-4821-7730-15",
+          "raw": "DEMO-4821-7730-15",
+          "conf": 92.0,
+          "page": 0,
+          "bbox": [
+            463,
+            366,
+            752,
+            386
+          ],
+          "label_bbox": [
+            82,
+            365,
+            257,
+            386
+          ]
+        },
+        "address": {
+          "value": "21 Lake View Road, Bhopal 462001",
+          "raw": "21 Lake View Road, Bhopal 462001",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            462,
+            440,
+            952,
+            467
+          ],
+          "label_bbox": [
+            80,
+            440,
+            216,
+            461
+          ]
+        },
+        "employer": {
+          "value": "Nimbus Softworks Pvt Ltd",
+          "raw": "Nimbus Softworks Pvt Ltd",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            463,
+            515,
+            817,
+            536
+          ],
+          "label_bbox": [
+            82,
+            515,
+            236,
+            542
+          ]
+        },
+        "income": {
+          "value": 95000.0,
+          "raw": "95,000",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            464,
+            589,
+            569,
+            617
+          ],
+          "label_bbox": [
+            82,
+            590,
+            406,
+            617
+          ]
+        },
+        "loan_amount": {
+          "value": 300000.0,
+          "raw": "3,00,000",
+          "conf": 91.0,
+          "page": 0,
+          "bbox": [
+            462,
+            666,
+            583,
+            690
+          ],
+          "label_bbox": [
+            82,
+            666,
+            297,
+            686
+          ]
+        },
+        "tenure": {
+          "value": "36 months",
+          "raw": "36 months",
+          "conf": 95.0,
+          "page": 0,
+          "bbox": [
+            462,
+            740,
+            608,
+            761
+          ],
+          "label_bbox": [
+            82,
+            741,
+            281,
+            761
+          ]
+        },
+        "app_date": {
+          "value": "2026-10-05",
+          "raw": "05/10/2026",
+          "conf": 96.0,
+          "page": 0,
+          "bbox": [
+            462,
+            816,
+            620,
+            839
+          ],
+          "label_bbox": [
+            80,
+            815,
+            351,
+            842
+          ]
+        }
+      },
+      "tables": {},
+      "structure": {
+        "duplicates": {},
+        "expected_fields": [
+          "name",
+          "dob",
+          "id_no",
+          "address",
+          "employer",
+          "income",
+          "loan_amount",
+          "tenure",
+          "app_date"
+        ],
+        "missing": [],
+        "low_confidence": [],
+        "value_columns": [
+          463
+        ],
+        "completeness": 1.0
+      },
+      "metadata": {
+        "image_format": "JPEG",
+        "image_mode": "RGB",
+        "image_size": [
+          1240,
+          1754
+        ]
+      },
+      "artefacts": {
+        "noise_map": "output/DEMO-TAMPERED/artefacts/DOC-03_noise.png",
+        "ela_map": "output/DEMO-TAMPERED/artefacts/DOC-03_ela.png",
+        "annotated": {
+          "0": "output/DEMO-TAMPERED/annotated/DOC-03_p1_annotated.png"
+        }
+      }
+    },
+    {
+      "doc_id": "DOC-04",
+      "filename": "04_bank_statement.pdf",
+      "sha256": "913ebc65bbbfda68cfdf0aa50ada4dc7a034e05c8a72187a7c2fb9cae6fbae54",
+      "media_type": "application/pdf",
+      "pages": 1,
+      "doc_type": "bank_statement",
+      "type_conf": 0.99,
+      "source": "text-layer",
+      "status": "investigated",
+      "fields": {
+        "name": {
+          "value": "Rohan Verma",
+          "raw": "Rohan Verma",
+          "conf": 99.0,
+          "page": 0,
+          "bbox": [
+            395.8,
+            204.5,
+            537.2,
+            236.0
+          ],
+          "label_bbox": [
+            104.2,
+            204.6,
+            282.4,
+            236.2
+          ]
+        },
+        "account_no": {
+          "value": "XXXXXXXX5521",
+          "raw": "XXXXXXXX5521",
+          "conf": 99.0,
+          "page": 0,
+          "bbox": [
+            395.8,
+            242.0,
+            569.1,
+            273.5
+          ],
+          "label_bbox": [
+            104.2,
+            242.1,
+            296.4,
+            273.7
+          ]
+        },
+        "address": {
+          "value": "21 Lake View Road, Bhopal 462001",
+          "raw": "21 Lake View Road, Bhopal 462001",
+          "conf": 99.0,
+          "page": 0,
+          "bbox": [
+            395.8,
+            279.5,
+            761.4,
+            311.0
+          ],
+          "label_bbox": [
+            104.2,
+            279.6,
+            203.5,
+            311.2
+          ]
+        },
+        "period": {
+          "value": "01/09/2026 to 30/09/2026",
+          "raw": "01/09/2026 to 30/09/2026",
+          "conf": 99.0,
+          "page": 0,
+          "bbox": [
+            395.8,
+            317.0,
+            657.0,
+            348.5
+          ],
+          "label_bbox": [
+            104.2,
+            317.1,
+            300.3,
+            348.7
+          ]
+        },
+        "closing": {
+          "value": 99220.0,
+          "raw": "99,220.00",
+          "conf": 99.0,
+          "page": 0,
+          "bbox": [
+            395.8,
+            640.0,
+            491.7,
+            671.9
+          ],
+          "label_bbox": [
+            104.2,
+            638.0,
+            290.1,
+            669.5
+          ]
+        }
+      },
+      "tables": {
+        "transactions": [
+          {
+            "date": "2026-09-01",
+            "date_raw": "01/09/2026",
+            "page": 0,
+            "description": "Opening Balance",
+            "debit": null,
+            "credit": null,
+            "balance": 24450.0,
+            "bbox": [
+              104.16666666666667,
+              429.5312563578288,
+              1122.7668762207031,
+              461.01875305175787
+            ]
+          },
+          {
+            "date": "2026-09-03",
+            "date_raw": "03/09/2026",
+            "page": 0,
+            "description": "UPI GROCERY MART",
+            "debit": 3250.0,
+            "credit": null,
+            "balance": 21200.0,
+            "bbox": [
+              104.16666666666667,
+              467.0312563578288,
+              1122.7668762207031,
+              498.51875305175787
+            ]
+          },
+          {
+            "date": "2026-09-05",
+            "date_raw": "05/09/2026",
+            "page": 0,
+            "description": "RENT TRANSFER",
+            "debit": 15000.0,
+            "credit": null,
+            "balance": 6200.0,
+            "bbox": [
+              104.16666666666667,
+              504.5312563578288,
+              1110.0251515706382,
+              536.0187530517578
+            ]
+          },
+          {
+            "date": "2026-09-12",
+            "date_raw": "12/09/2026",
+            "page": 0,
+            "description": "ELECTRICITY BILL",
+            "debit": 1180.0,
+            "credit": null,
+            "balance": 5020.0,
+            "bbox": [
+              104.16666666666667,
+              542.0312245686849,
+              1110.0251515706382,
+              573.5187530517578
+            ]
+          },
+          {
+            "date": "2026-09-30",
+            "date_raw": "30/09/2026",
+            "page": 0,
+            "description": "SALARY NIMBUS SOFTWORKS",
+            "debit": null,
+            "credit": 45200.0,
+            "balance": 50220.0,
+            "bbox": [
+              104.16666666666667,
+              579.5312245686849,
+              1122.7668762207031,
+              611.0187530517578
+            ]
+          }
+        ]
+      },
+      "structure": {
+        "duplicates": {},
+        "expected_fields": [
+          "name",
+          "account_no",
+          "address",
+          "period",
+          "closing"
+        ],
+        "missing": [],
+        "low_confidence": [],
+        "value_columns": [
+          396
+        ],
+        "completeness": 1.0
+      },
+      "metadata": {
+        "pdf": {
+          "format": "PDF 1.3",
+          "title": "Account Statement",
+          "author": "Demo Bank core banking",
+          "subject": "unspecified",
+          "creator": "DemoBank eStatement v4",
+          "producer": "QuickPDF Editor 2.1",
+          "creationDate": "D:20260930180000+05'30'",
+          "modDate": "D:20261004213000+05'30'"
+        },
+        "pdf_eof_markers": 1
+      },
+      "artefacts": {
+        "annotated": {
+          "0": "output/DEMO-TAMPERED/annotated/DOC-04_p1_annotated.png"
+        }
+      }
+    }
+  ],
+  "cross_document_matrix": [
+    {
+      "attribute": "Name",
+      "kind": "name",
+      "reference": "Identity Card",
+      "values": [
+        {
+          "doc_id": "DOC-01",
+          "doc_type": "Identity Card",
+          "raw": "Rohan Verma",
+          "match": null,
+          "score": 100.0,
+          "bbox": [
+            373,
+            265,
+            554,
+            286
+          ],
+          "page": 0
+        },
+        {
+          "doc_id": "DOC-02",
+          "doc_type": "Salary Slip",
+          "raw": "Rohan Verma",
+          "match": true,
+          "score": 100.0,
+          "bbox": [
+            413,
+            285,
+            594,
+            306
+          ],
+          "page": 0
+        },
+        {
+          "doc_id": "DOC-03",
+          "doc_type": "Loan Application Form",
+          "raw": "Rohan Verma",
+          "match": true,
+          "score": 100.0,
+          "bbox": [
+            463,
+            215,
+            644,
+            236
+          ],
+          "page": 0
+        },
+        {
+          "doc_id": "DOC-04",
+          "doc_type": "Bank Statement",
+          "raw": "Rohan Verma",
+          "match": true,
+          "score": 100.0,
+          "bbox": [
+            395.8,
+            204.5,
+            537.2,
+            236.0
+          ],
+          "page": 0
+        }
+      ]
+    },
+    {
+      "attribute": "Date of birth",
+      "kind": "exact",
+      "reference": "Identity Card",
+      "values": [
+        {
+          "doc_id": "DOC-01",
+          "doc_type": "Identity Card",
+          "raw": "14/03/1996",
+          "match": null,
+          "score": 100.0,
+          "bbox": [
+            373,
+            336,
+            530,
+            359
+          ],
+          "page": 0
+        },
+        {
+          "doc_id": "DOC-03",
+          "doc_type": "Loan Application Form",
+          "raw": "14/03/1994",
+          "match": false,
+          "score": 90.0,
+          "bbox": [
+            463,
+            291,
+            620,
+            314
+          ],
+          "page": 0
+        }
+      ]
+    },
+    {
+      "attribute": "ID number",
+      "kind": "exact",
+      "reference": "Identity Card",
+      "values": [
+        {
+          "doc_id": "DOC-01",
+          "doc_type": "Identity Card",
+          "raw": "DEMO-4821-7730-15",
+          "match": null,
+          "score": 100.0,
+          "bbox": [
+            373,
+            406,
+            662,
+            426
+          ],
+          "page": 0
+        },
+        {
+          "doc_id": "DOC-03",
+          "doc_type": "Loan Application Form",
+          "raw": "DEMO-4821-7730-15",
+          "match": true,
+          "score": 100.0,
+          "bbox": [
+            463,
+            366,
+            752,
+            386
+          ],
+          "page": 0
+        }
+      ]
+    },
+    {
+      "attribute": "Address",
+      "kind": "text",
+      "reference": "Identity Card",
+      "values": [
+        {
+          "doc_id": "DOC-01",
+          "doc_type": "Identity Card",
+          "raw": "21 Lake View Road, Bhopal 462001",
+          "match": null,
+          "score": 100.0,
+          "bbox": [
+            372,
+            545,
+            862,
+            572
+          ],
+          "page": 0
+        },
+        {
+          "doc_id": "DOC-03",
+          "doc_type": "Loan Application Form",
+          "raw": "21 Lake View Road, Bhopal 462001",
+          "match": true,
+          "score": 100.0,
+          "bbox": [
+            462,
+            440,
+            952,
+            467
+          ],
+          "page": 0
+        },
+        {
+          "doc_id": "DOC-04",
+          "doc_type": "Bank Statement",
+          "raw": "21 Lake View Road, Bhopal 462001",
+          "match": true,
+          "score": 100.0,
+          "bbox": [
+            395.8,
+            279.5,
+            761.4,
+            311.0
+          ],
+          "page": 0
+        }
+      ]
+    },
+    {
+      "attribute": "Employer",
+      "kind": "org",
+      "reference": "Salary Slip",
+      "values": [
+        {
+          "doc_id": "DOC-02",
+          "doc_type": "Salary Slip",
+          "raw": "Nimbus Softworks Pvt Ltd",
+          "match": null,
+          "score": 100.0,
+          "bbox": [
+            84,
+            78,
+            663,
+            108
+          ],
+          "page": 0
+        },
+        {
+          "doc_id": "DOC-03",
+          "doc_type": "Loan Application Form",
+          "raw": "Nimbus Softworks Pvt Ltd",
+          "match": true,
+          "score": 100.0,
+          "bbox": [
+            463,
+            515,
+            817,
+            536
+          ],
+          "page": 0
+        },
+        {
+          "doc_id": "DOC-04",
+          "doc_type": "Bank Statement",
+          "raw": "SALARY NIMBUS SOFTWORKS",
+          "match": true,
+          "score": 100.0,
+          "bbox": [
+            104.16666666666667,
+            579.5312245686849,
+            1122.7668762207031,
+            611.0187530517578
+          ],
+          "page": 0
+        }
+      ]
+    },
+    {
+      "attribute": "Monthly net income",
+      "kind": "money",
+      "reference": "Bank Statement",
+      "values": [
+        {
+          "doc_id": "DOC-03",
+          "doc_type": "Loan Application Form",
+          "raw": "95,000",
+          "match": false,
+          "score": 47.6,
+          "bbox": [
+            464,
+            589,
+            569,
+            617
+          ],
+          "page": 0
+        },
+        {
+          "doc_id": "DOC-02",
+          "doc_type": "Salary Slip",
+          "raw": "95,200",
+          "match": false,
+          "score": 47.5,
+          "bbox": [
+            414,
+            914,
+            519,
+            942
+          ],
+          "page": 0
+        },
+        {
+          "doc_id": "DOC-04",
+          "doc_type": "Bank Statement",
+          "raw": "45,200",
+          "match": null,
+          "score": 100.0,
+          "bbox": [
+            854.1666666666667,
+            579.5312245686849,
+            956.1000188191732,
+            611.0187530517578
+          ],
+          "page": 0
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-001",
+      "title": "Identity Card: region lacks scanner noise near an embedded image / photograph area",
+      "category": "visual",
+      "status": "OBSERVATION",
+      "severity": "high",
+      "confidence": 0.9,
+      "explanation": "Scanned paper carries roughly uniform sensor noise (page median 1.4). A 192x256 px area near an embedded image / photograph area is almost noise-free (x0.0). Areas added digitally after scanning, such as a pasted patch or replaced photo, typically look like this.",
+      "evidence": [
+        {
+          "doc_id": "DOC-01",
+          "page": 0,
+          "bbox": [
+            912,
+            256,
+            1104,
+            512
+          ],
+          "field": null,
+          "value": null,
+          "note": "noise level 0.0 vs page 1.4 (x0.0); ELA response x1.24",
+          "kind": "region",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-001_0.png"
+        }
+      ],
+      "verification": "Compare with the physical original or an independently obtained copy.",
+      "rule": "V1-noise-consistency",
+      "related": [],
+      "signals": {
+        "fields": [],
+        "kind": "image"
+      },
+      "review": {}
+    },
+    {
+      "id": "F-002",
+      "title": "Salary Slip: region lacks scanner noise near the value of 'Net pay'",
+      "category": "visual",
+      "status": "OBSERVATION",
+      "severity": "high",
+      "confidence": 0.9,
+      "explanation": "Scanned paper carries roughly uniform sensor noise (page median 1.4). A 112x32 px area near the value of 'Net pay' is almost noise-free (x0.02). Areas added digitally after scanning, such as a pasted patch or replaced photo, typically look like this. Error Level Analysis also responds differently here (x0.0 of the page average), suggesting a different compression history.",
+      "evidence": [
+        {
+          "doc_id": "DOC-02",
+          "page": 0,
+          "bbox": [
+            528,
+            912,
+            640,
+            944
+          ],
+          "field": null,
+          "value": null,
+          "note": "noise level 0.03 vs page 1.4 (x0.02); ELA response x0.0",
+          "kind": "region",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-015_1.png"
+        },
+        {
+          "doc_id": "DOC-02",
+          "page": 0,
+          "bbox": [
+            414,
+            914,
+            519,
+            942
+          ],
+          "field": "net_pay",
+          "value": "95,200",
+          "note": "field adjacent to the clean region",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-002_1.png"
+        }
+      ],
+      "verification": "Compare with the physical original or an independently obtained copy.",
+      "rule": "V1-noise-consistency",
+      "related": [
+        "F-003",
+        "F-010",
+        "F-014",
+        "F-015"
+      ],
+      "signals": {
+        "fields": [
+          "net_pay"
+        ],
+        "kind": "text-area"
+      },
+      "review": {}
+    },
+    {
+      "id": "F-003",
+      "title": "Salary Slip: character size of 'Net pay' differs from aligned values",
+      "category": "visual",
+      "status": "OBSERVATION",
+      "severity": "medium",
+      "confidence": 0.8,
+      "explanation": "Values in the same column (Pay date, Gross earnings, Total deductions) have a median character height of 20px; this value measures 23px (+15%). Documents generated by one system usually use one font size per column, so a single outlier suggests the value was typed separately.",
+      "evidence": [
+        {
+          "doc_id": "DOC-02",
+          "page": 0,
+          "bbox": [
+            414,
+            914,
+            519,
+            942
+          ],
+          "field": "net_pay",
+          "value": "95,200",
+          "note": "glyph height 23px vs column 20px",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-003_0.png"
+        }
+      ],
+      "verification": "Check the typeface and size of this value against the original.",
+      "rule": "V3-glyph-size",
+      "related": [
+        "F-002",
+        "F-010",
+        "F-014",
+        "F-015"
+      ],
+      "signals": {
+        "fields": [
+          "net_pay"
+        ]
+      },
+      "review": {}
+    },
+    {
+      "id": "F-004",
+      "title": "Loan Application Form: region lacks scanner noise near the value of 'Monthly net income'",
+      "category": "visual",
+      "status": "OBSERVATION",
+      "severity": "high",
+      "confidence": 0.9,
+      "explanation": "Scanned paper carries roughly uniform sensor noise (page median 1.4). A 112x32 px area near the value of 'Monthly net income' is almost noise-free (x0.03). Areas added digitally after scanning, such as a pasted patch or replaced photo, typically look like this. Error Level Analysis also responds differently here (x0.0 of the page average), suggesting a different compression history.",
+      "evidence": [
+        {
+          "doc_id": "DOC-03",
+          "page": 0,
+          "bbox": [
+            576,
+            592,
+            688,
+            624
+          ],
+          "field": null,
+          "value": null,
+          "note": "noise level 0.04 vs page 1.4 (x0.03); ELA response x0.0",
+          "kind": "region",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-016_1.png"
+        },
+        {
+          "doc_id": "DOC-03",
+          "page": 0,
+          "bbox": [
+            464,
+            589,
+            569,
+            617
+          ],
+          "field": "income",
+          "value": "95,000",
+          "note": "field adjacent to the clean region",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-004_1.png"
+        }
+      ],
+      "verification": "Compare with the physical original or an independently obtained copy.",
+      "rule": "V1-noise-consistency",
+      "related": [
+        "F-005",
+        "F-013",
+        "F-016"
+      ],
+      "signals": {
+        "fields": [
+          "income"
+        ],
+        "kind": "text-area"
+      },
+      "review": {}
+    },
+    {
+      "id": "F-005",
+      "title": "Loan Application Form: character size of 'Monthly net income' differs from aligned values",
+      "category": "visual",
+      "status": "OBSERVATION",
+      "severity": "medium",
+      "confidence": 0.8,
+      "explanation": "Values in the same column (Loan amount, Application date, Date of birth, ID number) have a median character height of 20px; this value measures 23px (+15%). Documents generated by one system usually use one font size per column, so a single outlier suggests the value was typed separately.",
+      "evidence": [
+        {
+          "doc_id": "DOC-03",
+          "page": 0,
+          "bbox": [
+            464,
+            589,
+            569,
+            617
+          ],
+          "field": "income",
+          "value": "95,000",
+          "note": "glyph height 23px vs column 20px",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-005_0.png"
+        }
+      ],
+      "verification": "Check the typeface and size of this value against the original.",
+      "rule": "V3-glyph-size",
+      "related": [
+        "F-004",
+        "F-013",
+        "F-016"
+      ],
+      "signals": {
+        "fields": [
+          "income"
+        ]
+      },
+      "review": {}
+    },
+    {
+      "id": "F-006",
+      "title": "Loan Application Form: signature placed outside the designated signature area",
+      "category": "visual",
+      "status": "OBSERVATION",
+      "severity": "medium",
+      "confidence": 0.8,
+      "explanation": "A signature-like ink stroke was found at (747, 1308, 1053, 1373), but the designated drawn box at (82, 1027, 519, 1164) is empty. A signature outside its box can indicate it was transplanted from another document.",
+      "evidence": [
+        {
+          "doc_id": "DOC-03",
+          "page": 0,
+          "bbox": [
+            747,
+            1308,
+            1053,
+            1373
+          ],
+          "field": null,
+          "value": null,
+          "note": "detected signature",
+          "kind": "region",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-006_0.png"
+        },
+        {
+          "doc_id": "DOC-03",
+          "page": 0,
+          "bbox": [
+            82,
+            1027,
+            519,
+            1164
+          ],
+          "field": null,
+          "value": null,
+          "note": "designated signature area (empty)",
+          "kind": "region",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-006_1.png"
+        }
+      ],
+      "verification": "Ask for a freshly signed copy; compare with the signature on file.",
+      "rule": "V4-signature-placement",
+      "related": [],
+      "signals": {
+        "fields": [
+          "signature"
+        ]
+      },
+      "review": {}
+    },
+    {
+      "id": "F-007",
+      "title": "Bank Statement: 'Closing balance' uses a font foreign to the rest of the PDF",
+      "category": "digital",
+      "status": "OBSERVATION",
+      "severity": "high",
+      "confidence": 0.85,
+      "explanation": "The PDF text layer shows '99,220.00' rendered in Times-Roman, while the rest of the document uses helvetica (1.3% of words use this font). Statement generators use a fixed font set; a single foreign-font value is typical of an edit made in a PDF editor.",
+      "evidence": [
+        {
+          "doc_id": "DOC-04",
+          "page": 0,
+          "bbox": [
+            395.83333333333337,
+            639.9573008219402,
+            491.6666666666667,
+            671.917724609375
+          ],
+          "field": null,
+          "value": "99,220.00",
+          "note": "font Times-Roman (rest of document: helvetica)",
+          "kind": "region",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-017_1.png"
+        }
+      ],
+      "verification": "Obtain the statement directly from the issuing bank.",
+      "rule": "D1-pdf-font",
+      "related": [
+        "F-011",
+        "F-008",
+        "F-017"
+      ],
+      "signals": {
+        "fields": [
+          "closing"
+        ]
+      },
+      "review": {}
+    },
+    {
+      "id": "F-008",
+      "title": "Bank Statement: PDF metadata indicates editing after creation",
+      "category": "digital",
+      "status": "OBSERVATION",
+      "severity": "medium",
+      "confidence": 0.8,
+      "explanation": "Created by 'DemoBank eStatement v4' but last written by 'QuickPDF Editor 2.1'; Modified (04/10/2026 21:30) after creation (30/09/2026 18:00). Metadata alone is weak evidence (it can be changed legitimately or forged), but it supports other signals on this file.",
+      "evidence": [
+        {
+          "doc_id": "DOC-04",
+          "page": 0,
+          "bbox": null,
+          "field": null,
+          "value": null,
+          "note": "Created by 'DemoBank eStatement v4' but last written by 'QuickPDF Editor 2.1'",
+          "kind": "metadata",
+          "crop_path": null
+        },
+        {
+          "doc_id": "DOC-04",
+          "page": 0,
+          "bbox": null,
+          "field": null,
+          "value": null,
+          "note": "Modified (04/10/2026 21:30) after creation (30/09/2026 18:00)",
+          "kind": "metadata",
+          "crop_path": null
+        }
+      ],
+      "verification": "Request the original file from the issuer.",
+      "rule": "D2-pdf-metadata",
+      "related": [
+        "F-017"
+      ],
+      "signals": {
+        "doc_level": true
+      },
+      "review": {}
+    },
+    {
+      "id": "F-009",
+      "title": "Signature comparison Identity Card vs Loan Application Form: visually consistent (score 0.98)",
+      "category": "visual",
+      "status": "OBSERVATION",
+      "severity": "low",
+      "confidence": 0.5,
+      "explanation": "Shape correlation of the two signature ink masks is 0.98 (1.0 = identical shape). This is a coarse shape heuristic, not handwriting verification: it cannot authenticate a signer and a high score can also mean a signature was copied.",
+      "evidence": [
+        {
+          "doc_id": "DOC-01",
+          "page": 0,
+          "bbox": [
+            87,
+            662,
+            353,
+            718
+          ],
+          "field": null,
+          "value": null,
+          "note": "signature A",
+          "kind": "region",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-009_0.png"
+        },
+        {
+          "doc_id": "DOC-03",
+          "page": 0,
+          "bbox": [
+            747,
+            1308,
+            1053,
+            1373
+          ],
+          "field": null,
+          "value": null,
+          "note": "signature B",
+          "kind": "region",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-009_1.png"
+        }
+      ],
+      "verification": "Forensic handwriting examination if the signature matters to the decision.",
+      "rule": "V4-signature-compare",
+      "related": [],
+      "signals": {
+        "similarity": 0.98
+      },
+      "review": {}
+    },
+    {
+      "id": "F-010",
+      "title": "Salary Slip: Net Pay does not equal Gross minus Deductions",
+      "category": "contextual",
+      "status": "INCONSISTENCY",
+      "severity": "high",
+      "confidence": 0.91,
+      "explanation": "Gross Earnings - Total Deductions = 45,200, but Net Pay reads 95,200 (difference 50,000). Payroll systems compute Net Pay automatically, so an arithmetic break points to the stated figure having been changed - or an OCR misread.",
+      "evidence": [
+        {
+          "doc_id": "DOC-02",
+          "page": 0,
+          "bbox": [
+            412,
+            786,
+            506,
+            810
+          ],
+          "field": "gross",
+          "value": "52,000",
+          "note": "Gross earnings as read (OCR conf 96%)",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-010_0.png"
+        },
+        {
+          "doc_id": "DOC-02",
+          "page": 0,
+          "bbox": [
+            412,
+            846,
+            488,
+            870
+          ],
+          "field": "total_deductions",
+          "value": "6,800",
+          "note": "Total deductions as read (OCR conf 96%)",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-010_1.png"
+        },
+        {
+          "doc_id": "DOC-02",
+          "page": 0,
+          "bbox": [
+            414,
+            914,
+            519,
+            942
+          ],
+          "field": "net_pay",
+          "value": "95,200",
+          "note": "stated total",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-010_2.png"
+        },
+        {
+          "doc_id": "DOC-02",
+          "page": 0,
+          "bbox": null,
+          "field": null,
+          "value": "45,200",
+          "note": "recomputed from components",
+          "kind": "computed",
+          "crop_path": null
+        }
+      ],
+      "verification": "Recompute from the source system; ask the issuer which figure is correct.",
+      "rule": "C3-salary-net",
+      "related": [
+        "F-002",
+        "F-003",
+        "F-014",
+        "F-015"
+      ],
+      "signals": {
+        "fields": [
+          "net_pay"
+        ],
+        "expected": 45200.0,
+        "stated": 95200.0
+      },
+      "review": {}
+    },
+    {
+      "id": "F-011",
+      "title": "Bank Statement: Closing Balance does not match the last running balance",
+      "category": "contextual",
+      "status": "INCONSISTENCY",
+      "severity": "high",
+      "confidence": 0.94,
+      "explanation": "The transaction table ends at 50,220 but the Closing Balance line reads 99,220 (difference 49,000). Every transaction was re-added; the table itself is internally consistent, so the summary line is the outlier.",
+      "evidence": [
+        {
+          "doc_id": "DOC-04",
+          "page": 0,
+          "bbox": [
+            395.8,
+            640.0,
+            491.7,
+            671.9
+          ],
+          "field": "closing",
+          "value": "99,220.00",
+          "note": "stated closing balance",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-011_0.png"
+        },
+        {
+          "doc_id": "DOC-04",
+          "page": 0,
+          "bbox": [
+            1020.8333333333334,
+            579.5312245686849,
+            1122.7668762207031,
+            611.0187530517578
+          ],
+          "field": null,
+          "value": "50,220",
+          "note": "last running balance in table",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-011_1.png"
+        }
+      ],
+      "verification": "Request the statement from the bank.",
+      "rule": "C5-bank-closing",
+      "related": [
+        "F-007",
+        "F-008",
+        "F-017"
+      ],
+      "signals": {
+        "fields": [
+          "closing"
+        ],
+        "expected": 50220.0,
+        "stated": 99220.0
+      },
+      "review": {}
+    },
+    {
+      "id": "F-012",
+      "title": "Date of birth mismatch: Loan Application Form says '14/03/1994', Identity Card says '14/03/1996'",
+      "category": "cross_document",
+      "status": "INCONSISTENCY",
+      "severity": "high",
+      "confidence": 0.87,
+      "explanation": "Date of birth is a stable identity attribute; documents for the same person must agree. Similarity score 90.0 (reference document: Identity Card).",
+      "evidence": [
+        {
+          "doc_id": "DOC-01",
+          "page": 0,
+          "bbox": [
+            373,
+            336,
+            530,
+            359
+          ],
+          "field": "dob",
+          "value": "14/03/1996",
+          "note": "reference value",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-012_0.png"
+        },
+        {
+          "doc_id": "DOC-03",
+          "page": 0,
+          "bbox": [
+            463,
+            291,
+            620,
+            314
+          ],
+          "field": "dob",
+          "value": "14/03/1994",
+          "note": "conflicting value",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-012_1.png"
+        }
+      ],
+      "verification": "Ask the applicant to explain the difference; verify with the issuer of the reference document.",
+      "rule": "X-dob",
+      "related": [],
+      "signals": {
+        "attr": "dob",
+        "fields": [
+          "dob"
+        ],
+        "doc": "DOC-03",
+        "ref_doc": "DOC-01",
+        "ref_value": "1996-03-14",
+        "value": "1994-03-14"
+      },
+      "review": {}
+    },
+    {
+      "id": "F-013",
+      "title": "Monthly net income mismatch: Loan Application Form says '95,000', Bank Statement says '45,200'",
+      "category": "cross_document",
+      "status": "INCONSISTENCY",
+      "severity": "high",
+      "confidence": 0.88,
+      "explanation": "Income stated on an application should be supported by payslip and bank credit. A mismatch is one of the strongest indicators of an inflated income claim. Similarity score 47.6 (reference document: Bank Statement).",
+      "evidence": [
+        {
+          "doc_id": "DOC-04",
+          "page": 0,
+          "bbox": [
+            854.1666666666667,
+            579.5312245686849,
+            956.1000188191732,
+            611.0187530517578
+          ],
+          "field": "salary_credit",
+          "value": "45,200",
+          "note": "reference value",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-013_0.png"
+        },
+        {
+          "doc_id": "DOC-03",
+          "page": 0,
+          "bbox": [
+            464,
+            589,
+            569,
+            617
+          ],
+          "field": "income",
+          "value": "95,000",
+          "note": "conflicting value",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-013_1.png"
+        }
+      ],
+      "verification": "Ask the applicant to explain the difference; verify with the issuer of the reference document.",
+      "rule": "X-income",
+      "related": [
+        "F-004",
+        "F-005",
+        "F-016"
+      ],
+      "signals": {
+        "attr": "income",
+        "fields": [
+          "income"
+        ],
+        "doc": "DOC-03",
+        "ref_doc": "DOC-04",
+        "ref_value": 45200.0,
+        "value": 95000.0
+      },
+      "review": {}
+    },
+    {
+      "id": "F-014",
+      "title": "Monthly net income mismatch: Salary Slip says '95,200', Bank Statement says '45,200'",
+      "category": "cross_document",
+      "status": "INCONSISTENCY",
+      "severity": "high",
+      "confidence": 0.88,
+      "explanation": "Income stated on an application should be supported by payslip and bank credit. A mismatch is one of the strongest indicators of an inflated income claim. Similarity score 47.5 (reference document: Bank Statement).",
+      "evidence": [
+        {
+          "doc_id": "DOC-04",
+          "page": 0,
+          "bbox": [
+            854.1666666666667,
+            579.5312245686849,
+            956.1000188191732,
+            611.0187530517578
+          ],
+          "field": "salary_credit",
+          "value": "45,200",
+          "note": "reference value",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-014_0.png"
+        },
+        {
+          "doc_id": "DOC-02",
+          "page": 0,
+          "bbox": [
+            414,
+            914,
+            519,
+            942
+          ],
+          "field": "net_pay",
+          "value": "95,200",
+          "note": "conflicting value",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-014_1.png"
+        }
+      ],
+      "verification": "Ask the applicant to explain the difference; verify with the issuer of the reference document.",
+      "rule": "X-income",
+      "related": [
+        "F-002",
+        "F-003",
+        "F-010",
+        "F-015"
+      ],
+      "signals": {
+        "attr": "income",
+        "fields": [
+          "net_pay"
+        ],
+        "doc": "DOC-02",
+        "ref_doc": "DOC-04",
+        "ref_value": 45200.0,
+        "value": 95200.0
+      },
+      "review": {}
+    },
+    {
+      "id": "F-015",
+      "title": "Salary Slip: 'Net pay' shows converging signs of alteration (stated value 95,200)",
+      "category": "correlated",
+      "status": "POTENTIAL_MANIPULATION",
+      "severity": "high",
+      "confidence": 0.97,
+      "explanation": "4 findings from independent visual/digital (2) and data-consistency (2) checks all concern the same field. Visual traces show how it may have been changed; data conflicts show that the value disagrees with the rest of the submission. Converging, independent signals are much stronger than any single one. Independent sources point to 45,200 as the consistent value (recomputed from components (F-010); Bank Statement (F-014)), whereas the document states 95,200.\n- [F-002] Salary Slip: region lacks scanner noise near the value of 'Net pay'\n- [F-003] Salary Slip: character size of 'Net pay' differs from aligned values\n- [F-010] Salary Slip: Net Pay does not equal Gross minus Deductions\n- [F-014] Monthly net income mismatch: Salary Slip says '95,200', Bank Statement says '45,200'",
+      "evidence": [
+        {
+          "doc_id": "DOC-02",
+          "page": 0,
+          "bbox": [
+            414,
+            914,
+            519,
+            942
+          ],
+          "field": "net_pay",
+          "value": "95,200",
+          "note": "field under investigation",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-015_0.png"
+        },
+        {
+          "doc_id": "DOC-02",
+          "page": 0,
+          "bbox": [
+            528,
+            912,
+            640,
+            944
+          ],
+          "field": null,
+          "value": null,
+          "note": "noise level 0.03 vs page 1.4 (x0.02); ELA response x0.0",
+          "kind": "region",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-015_1.png"
+        }
+      ],
+      "verification": "Treat 'Net pay' as unverified. Obtain the original from the issuer and confirm whether 45,200 is correct. This is a hypothesis for human review, not a determination of fraud.",
+      "rule": "R1-convergence",
+      "related": [
+        "F-002",
+        "F-003",
+        "F-010",
+        "F-014"
+      ],
+      "signals": {
+        "fields": [
+          "net_pay"
+        ],
+        "doc": "DOC-02",
+        "likely_original": 45200.0
+      },
+      "review": {}
+    },
+    {
+      "id": "F-016",
+      "title": "Loan Application Form: 'Monthly net income' shows converging signs of alteration (stated value 95,000)",
+      "category": "correlated",
+      "status": "POTENTIAL_MANIPULATION",
+      "severity": "high",
+      "confidence": 0.97,
+      "explanation": "3 findings from independent visual/digital (2) and data-consistency (1) checks all concern the same field. Visual traces show how it may have been changed; data conflicts show that the value disagrees with the rest of the submission. Converging, independent signals are much stronger than any single one. Independent sources point to 45,200 as the consistent value (Bank Statement (F-013)), whereas the document states 95,000.\n- [F-004] Loan Application Form: region lacks scanner noise near the value of 'Monthly net income'\n- [F-005] Loan Application Form: character size of 'Monthly net income' differs from aligned values\n- [F-013] Monthly net income mismatch: Loan Application Form says '95,000', Bank Statement says '45,200'",
+      "evidence": [
+        {
+          "doc_id": "DOC-03",
+          "page": 0,
+          "bbox": [
+            464,
+            589,
+            569,
+            617
+          ],
+          "field": "income",
+          "value": "95,000",
+          "note": "field under investigation",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-016_0.png"
+        },
+        {
+          "doc_id": "DOC-03",
+          "page": 0,
+          "bbox": [
+            576,
+            592,
+            688,
+            624
+          ],
+          "field": null,
+          "value": null,
+          "note": "noise level 0.04 vs page 1.4 (x0.03); ELA response x0.0",
+          "kind": "region",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-016_1.png"
+        }
+      ],
+      "verification": "Treat 'Monthly net income' as unverified. Obtain the original from the issuer and confirm whether 45,200 is correct. This is a hypothesis for human review, not a determination of fraud.",
+      "rule": "R1-convergence",
+      "related": [
+        "F-004",
+        "F-005",
+        "F-013"
+      ],
+      "signals": {
+        "fields": [
+          "income"
+        ],
+        "doc": "DOC-03",
+        "likely_original": 45200.0
+      },
+      "review": {}
+    },
+    {
+      "id": "F-017",
+      "title": "Bank Statement: 'Closing balance' shows converging signs of alteration (stated value 99,220.00)",
+      "category": "correlated",
+      "status": "POTENTIAL_MANIPULATION",
+      "severity": "high",
+      "confidence": 0.97,
+      "explanation": "3 findings from independent visual/digital (2) and data-consistency (1) checks all concern the same field. Visual traces show how it may have been changed; data conflicts show that the value disagrees with the rest of the submission. Converging, independent signals are much stronger than any single one. Independent sources point to 50,220 as the consistent value (recomputed from components (F-011)), whereas the document states 99,220.00.\n- [F-007] Bank Statement: 'Closing balance' uses a font foreign to the rest of the PDF\n- [F-011] Bank Statement: Closing Balance does not match the last running balance\n- [F-008] Bank Statement: PDF metadata indicates editing after creation",
+      "evidence": [
+        {
+          "doc_id": "DOC-04",
+          "page": 0,
+          "bbox": [
+            395.8,
+            640.0,
+            491.7,
+            671.9
+          ],
+          "field": "closing",
+          "value": "99,220.00",
+          "note": "field under investigation",
+          "kind": "field",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-017_0.png"
+        },
+        {
+          "doc_id": "DOC-04",
+          "page": 0,
+          "bbox": [
+            395.83333333333337,
+            639.9573008219402,
+            491.6666666666667,
+            671.917724609375
+          ],
+          "field": null,
+          "value": "99,220.00",
+          "note": "font Times-Roman (rest of document: helvetica)",
+          "kind": "region",
+          "crop_path": "output/DEMO-TAMPERED/evidence/F-017_1.png"
+        },
+        {
+          "doc_id": "DOC-04",
+          "page": 0,
+          "bbox": null,
+          "field": null,
+          "value": null,
+          "note": "Created by 'DemoBank eStatement v4' but last written by 'QuickPDF Editor 2.1'",
+          "kind": "metadata",
+          "crop_path": null
+        },
+        {
+          "doc_id": "DOC-04",
+          "page": 0,
+          "bbox": null,
+          "field": null,
+          "value": null,
+          "note": "Modified (04/10/2026 21:30) after creation (30/09/2026 18:00)",
+          "kind": "metadata",
+          "crop_path": null
+        }
+      ],
+      "verification": "Treat 'Closing balance' as unverified. Obtain the original from the issuer and confirm whether 50,220 is correct. This is a hypothesis for human review, not a determination of fraud.",
+      "rule": "R1-convergence",
+      "related": [
+        "F-007",
+        "F-011",
+        "F-008"
+      ],
+      "signals": {
+        "fields": [
+          "closing"
+        ],
+        "doc": "DOC-04",
+        "likely_original": 50220.0
+      },
+      "review": {}
+    }
+  ]
+}

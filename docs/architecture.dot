@@ -1,0 +1,48 @@
+digraph DocSentinel {
+  graph [rankdir=LR, bgcolor="white", fontname="Helvetica", nodesep=0.35, ranksep=0.45, pad=0.3,
+         label="DocSentinel - architecture and data flow", labelloc=t, fontsize=20, fontcolor="#14213D"];
+  node  [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11, color="#14213D",
+         fillcolor="#F1F3F6", penwidth=1.2, margin="0.15,0.08"];
+  edge  [color="#5C6370", arrowsize=0.7, fontname="Helvetica", fontsize=9];
+
+  subgraph cluster_in { label="Input"; style="rounded,dashed"; color="#9AA3AF"; fontcolor="#5C6370";
+    upload [label="Scanned images\n(JPG/PNG/TIFF)\n+ Digital / scanned PDFs", fillcolor="#FFFFFF"];
+    ui     [label="Streamlit console\n/ CLI", fillcolor="#FFFFFF"];
+  }
+
+  subgraph cluster_ext { label="Extraction & understanding"; style="rounded"; color="#1D6FD8"; fontcolor="#1D6FD8";
+    ingest [label="1 Ingestion\nSHA-256 · page render\n(Pillow, PyMuPDF)"];
+    cls    [label="2 Classification\nkeyword evidence\n+ confidence margin"];
+    ocr    [label="3 OCR / text layer\nTesseract 5 LSTM\nword boxes + conf."];
+    struct [label="4 Structure\nrows → segments\nlabel→value · tables\nmissing / duplicate"];
+  }
+
+  subgraph cluster_an { label="Analysis"; style="rounded"; color="#D97706"; fontcolor="#D97706";
+    vis  [label="5 Visual forensics\nnoise residual · ELA\nglyph-size outliers\nsignature placement"];
+    dig  [label="5b Digital forensics\nPDF font census\nmetadata / edits"];
+    ctx  [label="6 Contextual rules\npayslip arithmetic\nrunning balance · dates"];
+    xdoc [label="7 Cross-document\nentity matrix\nfuzzy + tolerance matching"];
+  }
+
+  subgraph cluster_rs { label="Reasoning & evidence"; style="rounded"; color="#C81E1E"; fontcolor="#C81E1E";
+    reason [label="8 Reasoning engine\nevidence graph (doc, field)\nsignal convergence\nlikely-original value\ncorroboration discount"];
+    llm    [label="Optional LLM narrative\n(Claude API, grounded\non findings only)", style="rounded,dashed,filled", fillcolor="#FFFFFF"];
+    evid   [label="9 Evidence\ncrops · annotated pages\nheat-maps · bbox trace"];
+  }
+
+  subgraph cluster_out { label="Output & oversight"; style="rounded"; color="#15803D"; fontcolor="#15803D";
+    dossier [label="10 Investigation dossier\nPDF (7.1–7.6) + JSON"];
+    review  [label="Analyst review\nconfirm / dismiss / more info"];
+    audit   [label="Audit trail\nhash-chained JSONL", shape=cylinder];
+  }
+
+  upload -> ingest; ui -> ingest;
+  ingest -> cls -> ocr -> struct;
+  struct -> vis; struct -> dig; struct -> ctx; struct -> xdoc;
+  vis -> reason; dig -> reason; ctx -> reason; xdoc -> reason;
+  reason -> evid -> dossier;
+  reason -> llm [style=dashed]; llm -> dossier [style=dashed];
+  dossier -> review [dir=both];
+  ingest -> audit [style=dotted, color="#15803D"]; reason -> audit [style=dotted, color="#15803D"];
+  review -> audit [style=dotted, color="#15803D"]; dossier -> audit [style=dotted, color="#15803D"];
+}
